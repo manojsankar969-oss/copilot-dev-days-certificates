@@ -32,7 +32,11 @@
     <div class="certificate-wrapper">
       <div class="certificate" id="certificate">
 
-        <!-- Corner ornaments (pure CSS L-brackets) -->
+        <!-- QR code: top-right corner, encodes page URL for verification -->
+        <div class="cert-qr-corner" aria-label="Scan to verify certificate">
+          <span class="cert-qr-label">Scan to verify</span>
+          <div id="cert-qr" class="cert-qr"></div>
+        </div>
         <div class="cert-corner cert-corner-tl" aria-hidden="true"></div>
         <div class="cert-corner cert-corner-tr" aria-hidden="true"></div>
         <div class="cert-corner cert-corner-bl" aria-hidden="true"></div>
@@ -64,8 +68,6 @@
           </div>
           <div class="cert-footer-center">
             <img id="cert-seal" src="" alt="Official Seal" class="cert-seal" />
-            <div id="cert-qr" class="cert-qr" aria-label="Scan to verify certificate"></div>
-            <span class="cert-qr-label">Scan to verify</span>
           </div>
           <div class="cert-footer-right">
             <img id="cert-signature" src="" alt="Authorized Signature" class="cert-signature" />

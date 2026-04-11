@@ -315,7 +315,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
 }
 
 /* Date and signature name: thin rule above for formal document feel */
@@ -359,7 +358,18 @@ body {
   color: var(--secondary-color);
 }
 
-/* Bottom row: QR code centered under seal */
+/* QR code: absolute top-right corner inside the inner border */
+.cert-qr-corner {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 1;
+}
+
 .cert-qr {
   line-height: 0; /* collapse gap under canvas/img */
 }
