@@ -138,7 +138,7 @@ body {
   color: var(--text-color);
   display: flex;
   flex-direction: column;
-  padding: 22px 44px 18px;
+  padding: 28px 44px 26px;
   box-sizing: border-box;
   position: relative;
   /* Inner gold border drawn via outline with negative offset */
@@ -179,8 +179,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 6px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .cert-logo {
@@ -204,7 +204,7 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 /* Gradient-fade ornament lines (more elegant than flat gold) */
@@ -254,12 +254,7 @@ body {
   font-family: var(--font-heading);
   font-size: 3.4rem;
   font-weight: 700;
-  /* Gradient text: navy -> gold — stands out as the visual centrepiece */
-  background: linear-gradient(135deg, var(--primary-color) 0%, #8b6914 40%, var(--secondary-color) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: var(--primary-color); /* fallback for non-supporting browsers */
+  color: var(--secondary-color);
   margin: 5px 0 3px;
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -270,8 +265,8 @@ body {
   content: '';
   display: block;
   width: 80px;
-  height: 2.5px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  height: 2px;
+  background: var(--secondary-color);
   margin: 10px auto 0;
   border-radius: 2px;
 }
@@ -363,10 +358,12 @@ body {
   color: var(--secondary-color);
 }
 
-/* Bottom row: certificate ID muted text */
+/* Bottom row: certificate ID on left, website URL on right */
 .cert-bottom-row {
-  text-align: center;
-  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
 }
 
 .cert-id-label {
@@ -376,6 +373,20 @@ body {
   letter-spacing: 0.06em;
   margin: 0;
   opacity: 0.75;
+}
+
+.cert-website-url {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.cert-website-url:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /* ========================================
@@ -429,13 +440,14 @@ body {
     print-color-adjust: exact;
   }
 
-  /* Restore solid name color for print (gradient text can ghost on some printers) */
+  /* Restore navy for print — gold prints poorly on most printers */
   .cert-name {
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-    -webkit-text-fill-color: var(--primary-color);
     color: var(--primary-color);
+  }
+
+  .cert-website-url {
+    color: var(--primary-color);
+    text-decoration: none;
   }
 
   /* Print-safe inner border via positioned ::after */

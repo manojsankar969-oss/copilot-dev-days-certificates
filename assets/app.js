@@ -165,6 +165,13 @@ function renderCertificateView(config, attendee) {
     var prefix = config.id_label || 'Certificate ID';
     idLabelEl.textContent = prefix + ': ' + attendee.certificate_id;
   }
+
+  // Bottom row: website URL
+  var websiteEl = document.getElementById('cert-website-url');
+  if (websiteEl && config.org_website) {
+    websiteEl.href = config.org_website;
+    websiteEl.textContent = config.org_website.replace(/^https?:\/\//, '');
+  }
 }
 
 /**
