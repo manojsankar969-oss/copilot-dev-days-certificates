@@ -159,19 +159,32 @@ function renderCertificateView(config, attendee) {
   var sigLabelEl = document.getElementById('cert-sig-label');
   if (sigLabelEl) sigLabelEl.textContent = config.issued_by_label || '';
 
-  // Bottom row: certificate ID
-  var idLabelEl = document.getElementById('cert-id-label');
-  if (idLabelEl) {
-    var prefix = config.id_label || 'Certificate ID';
-    idLabelEl.textContent = prefix + ': ' + attendee.certificate_id;
+  // QR code: encode full certificate URL for one-tap verification
+  if (config.show_qr !== false) {
+    generateQR(config);
+  } else {
+    var qrEl = document.getElementById('cert-qr');
+    if (qrEl) qrEl.parentNode.style.display = 'none';
   }
+}
 
-  // Bottom row: website URL
-  var websiteEl = document.getElementById('cert-website-url');
-  if (websiteEl && config.org_website) {
-    websiteEl.href = config.org_website;
-    websiteEl.textContent = config.org_website.replace(/^https?:\/\//, '');
-  }
+/**
+ * Generate a QR code inside #cert-qr that encodes the full page URL.
+ * Uses qrcode.js (window.QRCode) loaded from CDN.
+ * Encoded URL = window.location.href (includes ?id= param — the verification link).
+ */
+function generateQR(config) {
+  var container = document.getElementById('cert-qr');
+  if (!container || typeof QRCode === 'undefined') return;
+  container.innerHTML = '';
+  new QRCode(container, {
+    text: window.location.href,
+    width: 68,
+    height: 68,
+    colorDark: config.primary_color || '#1a2e4a',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
+  });
 }
 
 /**

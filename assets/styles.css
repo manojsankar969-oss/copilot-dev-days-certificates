@@ -315,6 +315,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 6px;
 }
 
 /* Date and signature name: thin rule above for formal document feel */
@@ -358,35 +359,25 @@ body {
   color: var(--secondary-color);
 }
 
-/* Bottom row: certificate ID on left, website URL on right */
-.cert-bottom-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 8px;
+/* Bottom row: QR code centered under seal */
+.cert-qr {
+  line-height: 0; /* collapse gap under canvas/img */
 }
 
-.cert-id-label {
+.cert-qr canvas,
+.cert-qr img {
+  width: 68px !important;
+  height: 68px !important;
+  display: block;
+}
+
+.cert-qr-label {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--muted-color);
-  letter-spacing: 0.06em;
-  margin: 0;
-  opacity: 0.75;
-}
-
-.cert-website-url {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  color: var(--secondary-color);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  opacity: 0.85;
-}
-
-.cert-website-url:hover {
-  opacity: 1;
-  text-decoration: underline;
+  opacity: 0.7;
 }
 
 /* ========================================
@@ -445,9 +436,11 @@ body {
     color: var(--primary-color);
   }
 
-  .cert-website-url {
-    color: var(--primary-color);
-    text-decoration: none;
+  /* QR canvas renders natively in print — no override needed */
+  .cert-qr canvas,
+  .cert-qr img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   /* Print-safe inner border via positioned ::after */
