@@ -1,24 +1,21 @@
-## What
+<!-- Certificate submission for GitHub Copilot Dev Days 2026 – Hyderabad -->
+<!-- Complete all checkboxes and update your certificate URL before submitting -->
 
-<!-- One sentence: what does this PR do? -->
+### Checklist
 
-## Why
+<!-- File naming: filename must match your registered email, e.g. jane-doe-at-example-com.json -->
+- [ ] File is placed in `data/` and named after my registered email (`jane-doe-at-example-com.json`)
+- [ ] `certificate_id` matches the filename exactly (without `.json`)
+- [ ] `name`, `email`, and `description` are my own — not copied from sample
 
-<!-- One sentence: why is this change needed? -->
+<!-- Required field values — copy exactly as shown -->
+- [ ] `workshop`: `Github Copilot Dev Days 2026 - Microsoft, Hyderabad`
+- [ ] `date`: `April 18, 2026`
+- [ ] `date_iso`: `2026-04-18`
 
-## Testing
+---
 
-- [ ] Tested on macOS
-- [ ] Tested on Windows
-- [ ] Tested on Linux
+### My certificate URL
 
-## Checklist
-
-- [ ] Follows GSD style (no enterprise patterns, no filler)
-- [ ] Updates CHANGELOG.md for user-facing changes
-- [ ] No unnecessary dependencies added
-- [ ] Works on Windows (backslash paths tested)
-
-## Breaking Changes
-
-None
+<!-- Replace YOUR-ID-HERE with your certificate_id value -->
+`https://srisatyalokesh.github.io/copilot-dev-days-certificates/?id=YOUR-ID-HERE`
